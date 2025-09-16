@@ -34,10 +34,4 @@ COPY --from=build /app/build/game_server /app/
 COPY ./data /app/data
 COPY ./static /app/static
 
-# Запускаем игровой сервер
-# ENTRYPOINT ["/app/game_server", "/app/data/config.json", "/app/static"]
-# ENTRYPOINT ["/app/game_server", "-c", "/app/data/config.json", "-w", "/app/static", "-t", "50", "--randomize-spawn-points", "true"]
-
-# ENTRYPOINT ["/app/game_server", "--config-file", "/app/data/config.json", "--www-root", "/app/static/", "--state-file", "/tmp/volume/state"]
-
 ENTRYPOINT ["/app/game_server", "--config-file", "/app/data/config.json", "--www-root", "/app/static/"]
